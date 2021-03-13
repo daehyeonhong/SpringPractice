@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.spring.mapper.UserMapper">
+
+    <resultMap type="UserVO" id="userMap">
+        <id property="user_id" column="user_id" />
+        <result property="user_password" column="user_password" />
+        <result property="user_name" column="user_name" />
+        <result property="user_nickname" column="user_nickname" />
+        <result property="user_email" column="user_email" />
+        <result property="user_phone" column="user_phone" />
+        <result property="license" column="license" />
+        <result property="birth_date" column="birth_date" />
+        <result property="user_reg_date" column="user_reg_date" />
+        <result property="user_update" column="user_update" />
+        <result property="enabled" column="enabled" />
+        <collection property="authList" column="authList" />
+    </resultMap>
+
+    <resultMap type="authVO" id="authMap">
+        <id property="user_id" column="user_id" />
+        <result property="authority" column="authority" />
+    </resultMap>
+
+    <select id="read" resultMap="userMap">
+        <![CDATA[
+            SELECT
+                U.USER_ID,USER_PASSWORD,USER_NAME,ENABLED,USER_REG_DATE,USER_UPDATE,AUTHORITY
+            FROM
+                USERS U LEFT OUTER JOIN MEMBER_AUTH A ON U.USER_ID=A.USER_ID
+            WHERE
+                U.USER_ID=#{user_id}
+        ]]>
+    </select>
+
+    <insert id="register">
+        <![CDATA[
+            INSERT INTO USERS
+                (USER_ID,USER_PASSWORD,USER_NAME,USER_NICKNAME,BIRTH_DATE,USER_EMAIL,USER_PHONE,LICENSE)
+            VALUES
+                (#{user_id},#{user_password},#{user_name},#{user_nickname},#{birth_date},#{user_email},#{user_phone},#{license})
+        ]]>
+    </insert>
+
+</mapper>

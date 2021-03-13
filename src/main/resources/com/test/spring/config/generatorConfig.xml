@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <context id="simple" targetRuntime="MyBatis3Simple">
+    <jdbcConnection connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:XE" driverClass="oracle.jdbc.driver.OracleDriver" password="HR" userId="HR" />
+    <javaModelGenerator targetPackage="com.test.spring.domain" targetProject="SpringTest/src/main/java">
+        <property name="enableSubPackages" value="true" />
+        <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+    <sqlMapGenerator targetPackage="mybatis.mapper" targetProject="SpringTest/src/main/resources" />
+    <javaClientGenerator targetPackage="com.test.spring.mapper" targetProject="SpringTest/src/main/java" type="XMLMAPPER" />
+    <table tableName="COUNTRIES" />
+    <table tableName="DEPARTMENTS" />
+    <table tableName="EMPLOYEES" />
+    <table tableName="JOBS" />
+    <table tableName="JOB_HISTORY" />
+    <table tableName="LOCATIONS" />
+    <table tableName="REGIONS" />
+  </context>
+</generatorConfiguration>
