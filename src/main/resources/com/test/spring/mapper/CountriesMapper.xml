@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.spring.mapper.CountriesMapper">
+    <resultMap id="BaseCountriesEntityResultMap" type="CountriesEntity">
+        <id column="COUNTRY_ID" jdbcType="CHAR" property="countryId" />
+        <result column="COUNTRY_NAME" jdbcType="VARCHAR" property="countryName" />
+        <result column="REGION_ID" jdbcType="NUMERIC" property="regionId" />
+    </resultMap>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from COUNTRIES
+        where COUNTRY_ID = #{countryId,jdbcType=CHAR}
+    </delete>
+
+    <insert id="insert" parameterType="CountriesEntity">
+        insert into COUNTRIES (COUNTRY_ID, COUNTRY_NAME, REGION_ID
+        )
+        values (#{countryId,jdbcType=CHAR}, #{countryName,jdbcType=VARCHAR},
+        #{regionId,jdbcType=NUMERIC}
+        )
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="CountriesEntity">
+        update COUNTRIES
+        set COUNTRY_NAME = #{countryName,jdbcType=VARCHAR},
+        REGION_ID = #{regionId,jdbcType=NUMERIC}
+        where COUNTRY_ID = #{countryId,jdbcType=CHAR}
+    </update>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseCountriesEntityResultMap">
+        select COUNTRY_ID, COUNTRY_NAME, REGION_ID
+        from COUNTRIES
+        where COUNTRY_ID = #{countryId,jdbcType=CHAR}
+    </select>
+
+    <select id="selectAll" resultMap="BaseCountriesEntityResultMap">
+        select COUNTRY_ID, COUNTRY_NAME, REGION_ID
+        from COUNTRIES
+    </select>
+
+</mapper>
