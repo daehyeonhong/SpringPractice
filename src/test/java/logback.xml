@@ -3,18 +3,19 @@
 <configuration scan="true" scanPeriod="30 seconds" >
     
     <property resource="logback.properties" />
-    <property name="SAMPLE" value="" />
-    
+
     <timestamp key="date" datePattern="yyyyMMdd" />
     <timestamp key="year" datePattern="YYYY" />
     <timestamp key="month" datePattern="MM" />
     <timestamp key="day" datePattern="dd" />
     
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-          <charset>UTF-8</charset>
-          <Pattern>[%d{yyyy-MM-dd HH:mm:ss}] [%p] [%t] [%c]%m%n</Pattern>
-        </encoder>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+              <charset>UTF-8</charset>
+              <Pattern>[%d{yyyy-MM-dd HH:mm:ss}] [%p] [%t] [%c]%m%n</Pattern>
+            </encoder>
+        </layout>
     </appender>
 
     <!-- <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -34,21 +35,19 @@
         </triggeringPolicy>
     </appender> -->
     
-    <logger name="com.freedy.sample" level="debug" additivity="false">
-        <appender-ref ref="file" />
+      <!-- HikariCP -->
+      <logger name="com.zaxxer.hikari" level="INFO">
         <appender-ref ref="console" />
-    </logger>
+      </logger>
 
-    <logger name="jdbc" level="OFF" />
-    <logger name="jdbc.sqlonly" level="OFF" />
-    <logger name="jdbc.sqltiming" level="DEBUG" />
-    <logger name="jdbc.audit" level="OFF" />
-    <logger name="jdbc.resultset" level="OFF" />
-    <logger name="jdbc.resultsettable" level="OFF" />
-    <logger name="jdbc.connection" level="OFF" />
+      <!-- Spring -->
+      <logger name="org.springframework" level="INFO" additivity="false">
+        <appender-ref ref="console" />
+      </logger>
 
     <root level="warn">
-        <appender-ref ref="file" />
+        <!-- <appender-ref ref="file" /> -->
         <appender-ref ref="console" />
     </root>
+
 </configuration>
