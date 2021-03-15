@@ -2,24 +2,37 @@
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 
-    <definition name="default" template="/WEB-INF/views/tiles/layout.jsp">
+    <definition name="defaultLayout" template="/WEB-INF/views/tiles/layout/defaultLayout.jsp">
         <put-attribute name="css" value="/WEB-INF/views/tiles/css.jsp" />
         <put-attribute name="script" value="/WEB-INF/views/tiles/script.jsp" />
-        <put-attribute name="header" value="/WEB-INF/views/tiles/header.jsp" />
+        <put-attribute name="sidebar" value="/WEB-INF/views/tiles/sidebar.jsp" />
+        <put-attribute name="toolbar" value="/WEB-INF/views/tiles/toolbar.jsp" />
         <put-attribute name="footer" value="/WEB-INF/views/tiles/footer.jsp" />
+        <put-attribute name="button" value="/WEB-INF/views/tiles/button.jsp" />
+        <put-attribute name="logoutModal" value="/WEB-INF/views/tiles/logoutModal.jsp" />
     </definition>
 
-    <definition name="*" extends="default">
+    <definition name="userLayout" template="/WEB-INF/views/tiles/layout/userLayout.jsp">
+        <put-attribute name="css" value="/WEB-INF/views/tiles/css.jsp" />
+        <put-attribute name="script" value="/WEB-INF/views/tiles/script.jsp" />
+    </definition>
+
+    <definition name="user/*" extends="userLayout">
+        <put-attribute name="title" value="{1}" />
+        <put-attribute name="body" value="/WEB-INF/views/user/{1}.jsp" />
+    </definition>
+
+    <definition name="*" extends="defaultLayout">
         <put-attribute name="title" value="{1}" />
         <put-attribute name="body" value="/WEB-INF/views/{1}.jsp" />
     </definition>
 
-    <definition name="*/*" extends="default">
+    <definition name="*/*" extends="defaultLayout">
         <put-attribute name="title" value="{2}" />
         <put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
     </definition>
 
-    <definition name="*/*/*" extends="default">
+    <definition name="*/*/*" extends="defaultLayout">
         <put-attribute name="title" value="{3}" />
         <put-attribute name="body" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
     </definition>
