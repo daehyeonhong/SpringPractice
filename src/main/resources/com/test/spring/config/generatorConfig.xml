@@ -7,14 +7,9 @@
         <property name="enableSubPackages" value="true" />
         <property name="trimStrings" value="true" />
     </javaModelGenerator>
-    <sqlMapGenerator targetPackage="mybatis.mapper" targetProject="SpringTest/src/main/resources" />
+    <sqlMapGenerator targetPackage="com.test.spring.mapper" targetProject="SpringTest/src/main/resources" />
     <javaClientGenerator targetPackage="com.test.spring.mapper" targetProject="SpringTest/src/main/java" type="XMLMAPPER" />
-    <table tableName="COUNTRIES" />
-    <table tableName="DEPARTMENTS" />
-    <table tableName="EMPLOYEES" />
-    <table tableName="JOBS" />
-    <table tableName="JOB_HISTORY" />
-    <table tableName="LOCATIONS" />
-    <table tableName="REGIONS" />
+    <table tableName="USERS" />
+    <table tableName="AUTHORITIES" />
   </context>
 </generatorConfiguration>

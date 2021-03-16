@@ -20,7 +20,7 @@ public class UserImpl extends User {
     }
 
     public UserImpl(UserVO vo) {
-        super(vo.getUser_id(), vo.getUser_password(), vo.getAuthList().stream()
+        super(vo.getUserId(), vo.getUserPassword(), vo.getAuthList().stream()
                 .map(auth -> new SimpleGrantedAuthority(auth.getAuthority())).collect(Collectors.toList()));
 
         this.userVO = vo;
