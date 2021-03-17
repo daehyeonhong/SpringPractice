@@ -43,6 +43,7 @@ public class JavaStream {
         Stream<Integer> iteratedStream = Stream.iterate(30, index -> index + 2).limit(5);
         iteratedStream.forEach(streamItem -> log.info("iteratedStream : {}", streamItem));
         String url = "https://futurecreator.github.io/2018/08/26/java-8-streams/";
+        log.info(url);
     }
 
     @After
