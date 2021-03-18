@@ -6,21 +6,21 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import lombok.Getter;
-import com.test.spring.domain.UserVO;
+import com.test.spring.domain.MemberVO;
 
 @Getter
-public class UserImpl extends User {
+public class MemberImpl extends User {
 
     private static final long serialVersionUID = 1L;
 
-    private UserVO userVO;
+    private MemberVO userVO;
 
-    public UserImpl(String username, String password, Collection<? extends GrantedAuthority> authorities) {
-        super(username, password, authorities);
+    public MemberImpl(String userId, String userPassword, Collection<? extends GrantedAuthority> authorities) {
+        super(userId, userPassword, authorities);
     }
 
-    public UserImpl(UserVO vo) {
-        super(vo.getUserId(), vo.getUserPassword(), vo.getAuthList().stream()
+    public MemberImpl(MemberVO vo) {
+        super(vo.getMemberId(), vo.getMemberPassword(), vo.getAuthList().stream()
                 .map(auth -> new SimpleGrantedAuthority(auth.getAuthority())).collect(Collectors.toList()));
 
         this.userVO = vo;

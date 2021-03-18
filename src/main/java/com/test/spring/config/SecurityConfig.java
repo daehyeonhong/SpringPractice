@@ -15,7 +15,7 @@ import org.springframework.security.web.firewall.DefaultHttpFirewall;
 import org.springframework.security.web.firewall.HttpFirewall;
 import lombok.extern.slf4j.Slf4j;
 import com.test.spring.security.LoginSuccessHandlerImpl;
-import com.test.spring.security.UserDetailsServiceImpl;
+import com.test.spring.security.MemberDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
@@ -24,7 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return new UserDetailsServiceImpl();
+        return new MemberDetailsServiceImpl();
     }
 
     @Bean

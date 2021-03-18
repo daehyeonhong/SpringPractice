@@ -1,56 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.test.spring.mapper.EmployeesMapper">
-  <resultMap id="BaseEmployeesEntityResultMap" type="com.test.spring.domain.entity.EmployeesEntity">
-    <id column="EMPLOYEE_ID" jdbcType="NUMERIC" property="employeeId" />
-    <result column="FIRST_NAME" jdbcType="VARCHAR" property="firstName" />
-    <result column="LAST_NAME" jdbcType="VARCHAR" property="lastName" />
-    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
-    <result column="PHONE_NUMBER" jdbcType="VARCHAR" property="phoneNumber" />
-    <result column="HIRE_DATE" jdbcType="TIMESTAMP" property="hireDate" />
-    <result column="JOB_ID" jdbcType="VARCHAR" property="jobId" />
-    <result column="SALARY" jdbcType="NUMERIC" property="salary" />
-    <result column="COMMISSION_PCT" jdbcType="NUMERIC" property="commissionPct" />
-    <result column="MANAGER_ID" jdbcType="NUMERIC" property="managerId" />
-    <result column="DEPARTMENT_ID" jdbcType="NUMERIC" property="departmentId" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from EMPLOYEES
-    where EMPLOYEE_ID = #{employeeId,jdbcType=NUMERIC}
-  </delete>
-  <insert id="insert" parameterType="com.test.spring.domain.entity.EmployeesEntity">
-    insert into EMPLOYEES (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, 
-      EMAIL, PHONE_NUMBER, HIRE_DATE, 
-      JOB_ID, SALARY, COMMISSION_PCT, 
-      MANAGER_ID, DEPARTMENT_ID)
-    values (#{employeeId,jdbcType=NUMERIC}, #{firstName,jdbcType=VARCHAR}, #{lastName,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR}, #{hireDate,jdbcType=TIMESTAMP}, 
-      #{jobId,jdbcType=VARCHAR}, #{salary,jdbcType=NUMERIC}, #{commissionPct,jdbcType=NUMERIC}, 
-      #{managerId,jdbcType=NUMERIC}, #{departmentId,jdbcType=NUMERIC})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.test.spring.domain.entity.EmployeesEntity">
-    update EMPLOYEES
-    set FIRST_NAME = #{firstName,jdbcType=VARCHAR},
-      LAST_NAME = #{lastName,jdbcType=VARCHAR},
-      EMAIL = #{email,jdbcType=VARCHAR},
-      PHONE_NUMBER = #{phoneNumber,jdbcType=VARCHAR},
-      HIRE_DATE = #{hireDate,jdbcType=TIMESTAMP},
-      JOB_ID = #{jobId,jdbcType=VARCHAR},
-      SALARY = #{salary,jdbcType=NUMERIC},
-      COMMISSION_PCT = #{commissionPct,jdbcType=NUMERIC},
-      MANAGER_ID = #{managerId,jdbcType=NUMERIC},
-      DEPARTMENT_ID = #{departmentId,jdbcType=NUMERIC}
-    where EMPLOYEE_ID = #{employeeId,jdbcType=NUMERIC}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseEmployeesEntityResultMap">
-    select EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID, 
-    SALARY, COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID
-    from EMPLOYEES
-    where EMPLOYEE_ID = #{employeeId,jdbcType=NUMERIC}
-  </select>
-  <select id="selectAll" resultMap="BaseEmployeesEntityResultMap">
-    select EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID, 
-    SALARY, COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID
-    from EMPLOYEES
-  </select>
+
+    <resultMap id="BaseEmployeesEntityResultMap" type="com.test.spring.domain.entity.EmployeesEntity">
+        <id column="EMPLOYEE_ID" jdbcType="NUMERIC" property="employeeId" />
+        <result column="FIRST_NAME" jdbcType="VARCHAR" property="firstName" />
+        <result column="LAST_NAME" jdbcType="VARCHAR" property="lastName" />
+        <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+        <result column="PHONE_NUMBER" jdbcType="VARCHAR" property="phoneNumber" />
+        <result column="HIRE_DATE" jdbcType="TIMESTAMP" property="hireDate" />
+        <result column="JOB_ID" jdbcType="VARCHAR" property="jobId" />
+        <result column="SALARY" jdbcType="NUMERIC" property="salary" />
+        <result column="COMMISSION_PCT" jdbcType="NUMERIC" property="commissionPct" />
+        <result column="MANAGER_ID" jdbcType="NUMERIC" property="managerId" />
+        <result column="DEPARTMENT_ID" jdbcType="NUMERIC" property="departmentId" />
+    </resultMap>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from EMPLOYEES
+        where EMPLOYEE_ID = #{employeeId,jdbcType=NUMERIC}
+    </delete>
+
+    <insert id="insert" parameterType="com.test.spring.domain.entity.EmployeesEntity">
+        insert into EMPLOYEES (EMPLOYEE_ID, FIRST_NAME, LAST_NAME,
+        EMAIL, PHONE_NUMBER, HIRE_DATE,
+        JOB_ID, SALARY, COMMISSION_PCT,
+        MANAGER_ID, DEPARTMENT_ID)
+        values (#{employeeId,jdbcType=NUMERIC}, #{firstName,jdbcType=VARCHAR}, #{lastName,jdbcType=VARCHAR},
+        #{email,jdbcType=VARCHAR}, #{phoneNumber,jdbcType=VARCHAR}, #{hireDate,jdbcType=TIMESTAMP},
+        #{jobId,jdbcType=VARCHAR}, #{salary,jdbcType=NUMERIC}, #{commissionPct,jdbcType=NUMERIC},
+        #{managerId,jdbcType=NUMERIC}, #{departmentId,jdbcType=NUMERIC})
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="com.test.spring.domain.entity.EmployeesEntity">
+        update EMPLOYEES
+        set FIRST_NAME = #{firstName,jdbcType=VARCHAR},
+        LAST_NAME = #{lastName,jdbcType=VARCHAR},
+        EMAIL = #{email,jdbcType=VARCHAR},
+        PHONE_NUMBER = #{phoneNumber,jdbcType=VARCHAR},
+        HIRE_DATE = #{hireDate,jdbcType=TIMESTAMP},
+        JOB_ID = #{jobId,jdbcType=VARCHAR},
+        SALARY = #{salary,jdbcType=NUMERIC},
+        COMMISSION_PCT = #{commissionPct,jdbcType=NUMERIC},
+        MANAGER_ID = #{managerId,jdbcType=NUMERIC},
+        DEPARTMENT_ID = #{departmentId,jdbcType=NUMERIC}
+        where EMPLOYEE_ID = #{employeeId,jdbcType=NUMERIC}
+    </update>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseEmployeesEntityResultMap">
+        select EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID,
+        SALARY, COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID
+        from EMPLOYEES
+        where EMPLOYEE_ID = #{employeeId,jdbcType=NUMERIC}
+    </select>
+
+    <select id="selectAll" resultMap="BaseEmployeesEntityResultMap">
+        select EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID,
+        SALARY, COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID
+        from EMPLOYEES
+    </select>
+
 </mapper>

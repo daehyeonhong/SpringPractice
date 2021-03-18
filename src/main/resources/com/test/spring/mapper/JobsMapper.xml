@@ -1,36 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.test.spring.mapper.JobsMapper">
-  <resultMap id="BaseJobsEntityResultMap" type="com.test.spring.domain.entity.JobsEntity">
-    <id column="JOB_ID" jdbcType="VARCHAR" property="jobId" />
-    <result column="JOB_TITLE" jdbcType="VARCHAR" property="jobTitle" />
-    <result column="MIN_SALARY" jdbcType="NUMERIC" property="minSalary" />
-    <result column="MAX_SALARY" jdbcType="NUMERIC" property="maxSalary" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from JOBS
-    where JOB_ID = #{jobId,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.test.spring.domain.entity.JobsEntity">
-    insert into JOBS (JOB_ID, JOB_TITLE, MIN_SALARY, 
-      MAX_SALARY)
-    values (#{jobId,jdbcType=VARCHAR}, #{jobTitle,jdbcType=VARCHAR}, #{minSalary,jdbcType=NUMERIC}, 
-      #{maxSalary,jdbcType=NUMERIC})
-  </insert>
-  <update id="updateByPrimaryKey" parameterType="com.test.spring.domain.entity.JobsEntity">
-    update JOBS
-    set JOB_TITLE = #{jobTitle,jdbcType=VARCHAR},
-      MIN_SALARY = #{minSalary,jdbcType=NUMERIC},
-      MAX_SALARY = #{maxSalary,jdbcType=NUMERIC}
-    where JOB_ID = #{jobId,jdbcType=VARCHAR}
-  </update>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseJobsEntityResultMap">
-    select JOB_ID, JOB_TITLE, MIN_SALARY, MAX_SALARY
-    from JOBS
-    where JOB_ID = #{jobId,jdbcType=VARCHAR}
-  </select>
-  <select id="selectAll" resultMap="BaseJobsEntityResultMap">
-    select JOB_ID, JOB_TITLE, MIN_SALARY, MAX_SALARY
-    from JOBS
-  </select>
+
+    <resultMap id="BaseJobsEntityResultMap" type="com.test.spring.domain.entity.JobsEntity">
+        <id column="JOB_ID" jdbcType="VARCHAR" property="jobId" />
+        <result column="JOB_TITLE" jdbcType="VARCHAR" property="jobTitle" />
+        <result column="MIN_SALARY" jdbcType="NUMERIC" property="minSalary" />
+        <result column="MAX_SALARY" jdbcType="NUMERIC" property="maxSalary" />
+    </resultMap>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from JOBS
+        where JOB_ID = #{jobId,jdbcType=VARCHAR}
+    </delete>
+
+    <insert id="insert" parameterType="com.test.spring.domain.entity.JobsEntity">
+        insert into JOBS (JOB_ID, JOB_TITLE, MIN_SALARY,
+        MAX_SALARY)
+        values (#{jobId,jdbcType=VARCHAR}, #{jobTitle,jdbcType=VARCHAR}, #{minSalary,jdbcType=NUMERIC},
+        #{maxSalary,jdbcType=NUMERIC})
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="com.test.spring.domain.entity.JobsEntity">
+        update JOBS
+        set JOB_TITLE = #{jobTitle,jdbcType=VARCHAR},
+        MIN_SALARY = #{minSalary,jdbcType=NUMERIC},
+        MAX_SALARY = #{maxSalary,jdbcType=NUMERIC}
+        where JOB_ID = #{jobId,jdbcType=VARCHAR}
+    </update>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseJobsEntityResultMap">
+        select JOB_ID, JOB_TITLE, MIN_SALARY, MAX_SALARY
+        from JOBS
+        where JOB_ID = #{jobId,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectAll" resultMap="BaseJobsEntityResultMap">
+        select JOB_ID, JOB_TITLE, MIN_SALARY, MAX_SALARY
+        from JOBS
+    </select>
+
 </mapper>

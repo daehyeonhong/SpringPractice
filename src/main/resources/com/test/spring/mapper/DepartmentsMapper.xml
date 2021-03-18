@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.test.spring.mapper.DepartmentsMapper">
+
   <resultMap id="BaseDepartmentsEntityResultMap" type="com.test.spring.domain.entity.DepartmentsEntity">
     <id column="DEPARTMENT_ID" jdbcType="NUMERIC" property="departmentId" />
     <result column="DEPARTMENT_NAME" jdbcType="VARCHAR" property="departmentName" />
     <result column="MANAGER_ID" jdbcType="NUMERIC" property="managerId" />
     <result column="LOCATION_ID" jdbcType="NUMERIC" property="locationId" />
   </resultMap>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
     delete from DEPARTMENTS
     where DEPARTMENT_ID = #{departmentId,jdbcType=NUMERIC}
   </delete>
+  
   <insert id="insert" parameterType="com.test.spring.domain.entity.DepartmentsEntity">
     insert into DEPARTMENTS (DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, 
       LOCATION_ID)
     values (#{departmentId,jdbcType=NUMERIC}, #{departmentName,jdbcType=VARCHAR}, #{managerId,jdbcType=NUMERIC}, 
       #{locationId,jdbcType=NUMERIC})
   </insert>
+
   <update id="updateByPrimaryKey" parameterType="com.test.spring.domain.entity.DepartmentsEntity">
     update DEPARTMENTS
     set DEPARTMENT_NAME = #{departmentName,jdbcType=VARCHAR},
@@ -24,13 +28,16 @@
       LOCATION_ID = #{locationId,jdbcType=NUMERIC}
     where DEPARTMENT_ID = #{departmentId,jdbcType=NUMERIC}
   </update>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseDepartmentsEntityResultMap">
     select DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, LOCATION_ID
     from DEPARTMENTS
     where DEPARTMENT_ID = #{departmentId,jdbcType=NUMERIC}
   </select>
+
   <select id="selectAll" resultMap="BaseDepartmentsEntityResultMap">
     select DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, LOCATION_ID
     from DEPARTMENTS
   </select>
+  
 </mapper>
