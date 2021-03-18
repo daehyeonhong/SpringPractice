@@ -24,12 +24,10 @@
     <insert id="insert" parameterType="com.test.spring.domain.entity.MemberEntity">
         insert into MEMBER (MEMBER_ID, MEMBER_PASSWORD, MEMBER_NAME,
         MEMBER_NICKNAME, BIRTH_DATE, MEMBER_EMAIL,
-        MEMBER_PHONE, LICENSE, MEMBER_REGDATE,
-        MEMBER_UPDATE, ENABLED)
+        MEMBER_PHONE, LICENSE)
         values (#{memberId,jdbcType=VARCHAR}, #{memberPassword,jdbcType=VARCHAR}, #{memberName,jdbcType=VARCHAR},
         #{memberNickname,jdbcType=VARCHAR}, #{birthDate,jdbcType=TIMESTAMP}, #{memberEmail,jdbcType=VARCHAR},
-        #{memberPhone,jdbcType=VARCHAR}, #{license,jdbcType=VARCHAR}, #{memberRegdate,jdbcType=TIMESTAMP},
-        #{memberUpdate,jdbcType=TIMESTAMP}, #{enabled,jdbcType=CHAR})
+        #{memberPhone,jdbcType=VARCHAR}, #{license,jdbcType=VARCHAR})
     </insert>
 
     <update id="updateByPrimaryKey" parameterType="com.test.spring.domain.entity.MemberEntity">
@@ -61,9 +59,9 @@
     </select>
 
     <select id="read">
-        SELECT USER.USER_ID, USER_PASSWORD, ENABLED, USER_REG_DATE, USER_UPDATE, AUTH
-        FROM USER USER LEFT OUTER JOIN AUTHORITIES AUTH ON USER.USER_ID = AUTH.USER_ID
-        WHERE USER.USER_ID = #{userId}
+        SELECT MEMBER.MEMBER_ID, USER_PASSWORD, ENABLED, USER_REG_DATE, USER_UPDATE, AUTH
+        FROM MEMBER MEMBER LEFT OUTER JOIN AUTHORITIES AUTH ON MEMBER.MEMBER_ID = AUTH.MEMBER_ID
+        WHERE MEMBER.MEMBER_ID = #{memberId}
     </select>
 
 </mapper>

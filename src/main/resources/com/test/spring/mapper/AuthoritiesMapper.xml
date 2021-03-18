@@ -3,17 +3,17 @@
 <mapper namespace="com.test.spring.mapper.AuthoritiesMapper">
 
     <resultMap id="BaseAuthoritiesEntityResultMap" type="com.test.spring.domain.entity.AuthoritiesEntity">
-        <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
+        <result column="MEMBER_ID" jdbcType="VARCHAR" property="memberId" />
         <result column="AUTHORITY" jdbcType="VARCHAR" property="authority" />
     </resultMap>
 
     <insert id="insert" parameterType="com.test.spring.domain.entity.AuthoritiesEntity">
-        insert into AUTHORITIES (USER_ID, AUTHORITY)
-        values (#{userId,jdbcType=VARCHAR}, #{authority,jdbcType=VARCHAR})
+        insert into AUTHORITIES (MEMBER_ID, AUTHORITY)
+        values (#{memberId,jdbcType=VARCHAR}, #{authority,jdbcType=VARCHAR})
     </insert>
 
     <select id="selectAll" resultMap="BaseAuthoritiesEntityResultMap">
-        select USER_ID, AUTHORITY
+        select MEMBER_ID, AUTHORITY
         from AUTHORITIES
     </select>
 

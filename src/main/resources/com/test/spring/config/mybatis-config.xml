@@ -18,7 +18,7 @@
 
     <typeAliases>
         <typeAlias alias="authVO" type="com.test.spring.domain.AuthVO" />
-        <typeAlias alias="UserVO" type="com.test.spring.domain.UserVO" />
+        <typeAlias alias="MemberVO" type="com.test.spring.domain.MemberVO" />
         <typeAlias alias="CountriesEntity" type="com.test.spring.domain.entity.CountriesEntity" />
         <typeAlias alias="DepartmentsEntity" type="com.test.spring.domain.entity.DepartmentsEntity" />
         <typeAlias alias="EmployeesEntity" type="com.test.spring.domain.entity.EmployeesEntity" />

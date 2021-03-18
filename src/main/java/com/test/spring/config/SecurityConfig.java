@@ -23,7 +23,7 @@ import com.test.spring.security.MemberDetailsServiceImpl;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
-    public UserDetailsService userDetailsService() {
+    public UserDetailsService memberDetailsService() {
         return new MemberDetailsServiceImpl();
     }
 
@@ -50,13 +50,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         log.info("Configure with JDBC");
-        auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(memberDetailsService()).passwordEncoder(passwordEncoder());
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .antMatchers("/member/all").permitAll()
+            .antMatchers("/member/admin").access("hasRole('ROLE_ADMIN')")
+            .antMatchers("/member/member").access("hasRole('ROLE_MEMBER')");
 
-        http.formLogin().loginPage("/user/login").loginProcessingUrl("/login").successHandler(loginSuccessHandler());
+        http.formLogin()
+            .loginPage("/member/login")
+            .loginProcessingUrl("/login")
+            .successHandler(loginSuccessHandler());
 
         http.logout().logoutUrl("/logout").invalidateHttpSession(true);
     }

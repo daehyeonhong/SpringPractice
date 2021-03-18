@@ -26,8 +26,8 @@ public class LoginSuccessHandlerImpl implements AuthenticationSuccessHandler {
 
         log.warn("ROLE NAMES ==> {}", roleNames);
 
-        response.sendRedirect(roleNames.contains("ROLE_ADMIN") ? "/sample/admin"
-                : roleNames.contains("ROLE_MEMBER") ? "/sample/member" : "/");
+        response.sendRedirect(roleNames.contains("ROLE_ADMIN") ? "/member/admin"
+                : roleNames.contains("ROLE_MEMBER") ? "/member/member" : "/");
     }
 
 }
