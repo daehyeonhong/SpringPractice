@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration scan="true" scanPeriod="30 seconds" >
-    
+
     <property resource="logback.properties" />
 
     <timestamp key="date" datePattern="yyyyMMdd" />
     <timestamp key="year" datePattern="YYYY" />
     <timestamp key="month" datePattern="MM" />
     <timestamp key="day" datePattern="dd" />
-    
+
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
             <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
@@ -34,7 +34,7 @@
           <maxFileSize>30MB</maxFileSize>
         </triggeringPolicy>
     </appender> -->
-    
+
       <!-- HikariCP -->
       <logger name="com.zaxxer.hikari" level="INFO">
         <appender-ref ref="console" />

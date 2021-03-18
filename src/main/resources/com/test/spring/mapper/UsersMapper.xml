@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.test.spring.mapper.UsersMapper">
-  <resultMap id="BaseResultMap" type="com.test.spring.domain.Users">
+  <resultMap id="BaseResultMap" type="com.test.spring.domain.entity.UsersEntity">
     <id column="USER_ID" jdbcType="VARCHAR" property="userId" />
     <result column="USER_PASSWORD" jdbcType="VARCHAR" property="userPassword" />
     <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
@@ -18,7 +18,7 @@
     delete from USERS
     where USER_ID = #{userId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.test.spring.domain.Users">
+  <insert id="insert" parameterType="com.test.spring.domain.entity.UsersEntity">
     insert into USERS (USER_ID, USER_PASSWORD, USER_NAME, 
       USER_NICKNAME, BIRTH_DATE, USER_EMAIL, 
       USER_PHONE, LICENSE, USER_REG_DATE, 
@@ -28,7 +28,7 @@
       #{userPhone,jdbcType=VARCHAR}, #{license,jdbcType=VARCHAR}, #{userRegDate,jdbcType=TIMESTAMP}, 
       #{userUpdate,jdbcType=TIMESTAMP}, #{enabled,jdbcType=CHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.test.spring.domain.Users">
+  <update id="updateByPrimaryKey" parameterType="com.test.spring.domain.entity.UsersEntity">
     update USERS
     set USER_PASSWORD = #{userPassword,jdbcType=VARCHAR},
       USER_NAME = #{userName,jdbcType=VARCHAR},

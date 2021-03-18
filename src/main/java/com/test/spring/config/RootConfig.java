@@ -71,13 +71,11 @@ public class RootConfig {
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
         sqlSessionFactory.setDataSource(dataSource());
-        sqlSessionFactory.setConfigLocation(
-                applicationContext
-                    .getResource("classpath:/com/test/spring/config/mybatis-config.xml"));
+        sqlSessionFactory.setConfigLocation(applicationContext.getResource("classpath:/com/test/spring/config/mybatis-config.xml"));
         return (SqlSessionFactory) sqlSessionFactory.getObject();
     }
 
-    public DataSourceTransactionManager txManager() {
+    public DataSourceTransactionManager transactionManager() {
         return new DataSourceTransactionManager(dataSource());
     }
 

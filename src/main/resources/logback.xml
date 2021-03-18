@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration scan="true" scanPeriod="30 seconds" >
-    
+ 
     <property resource="logback.properties" />
     <property name="SAMPLE" value="" />
     
@@ -33,7 +33,7 @@
           <maxFileSize>30MB</maxFileSize>
         </triggeringPolicy>
     </appender> -->
-    
+
     <logger name="com.freedy.sample" level="debug" additivity="false">
         <appender-ref ref="file" />
         <appender-ref ref="console" />
@@ -51,4 +51,5 @@
         <appender-ref ref="file" />
         <appender-ref ref="console" />
     </root>
+
 </configuration>
