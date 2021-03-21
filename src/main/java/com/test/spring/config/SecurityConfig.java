@@ -15,7 +15,7 @@ import org.springframework.security.web.firewall.DefaultHttpFirewall;
 import org.springframework.security.web.firewall.HttpFirewall;
 import lombok.extern.slf4j.Slf4j;
 import com.test.spring.security.LoginSuccessHandlerImpl;
-import com.test.spring.security.MemberDetailsServiceImpl;
+import com.test.spring.security.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
@@ -23,8 +23,8 @@ import com.test.spring.security.MemberDetailsServiceImpl;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
-    public UserDetailsService memberDetailsService() {
-        return new MemberDetailsServiceImpl();
+    public UserDetailsService userDetailsService() {
+        return new UserDetailsServiceImpl();
     }
 
     @Bean
@@ -50,18 +50,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         log.info("Configure with JDBC");
-        auth.userDetailsService(memberDetailsService()).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-            .antMatchers("/member/all").permitAll()
-            .antMatchers("/member/admin").access("hasRole('ROLE_ADMIN')")
-            .antMatchers("/member/member").access("hasRole('ROLE_MEMBER')");
+            .antMatchers("/user/all").permitAll()
+            .antMatchers("/user/admin").access("hasRole('ROLE_ADMIN')")
+            .antMatchers("/user/member").access("hasRole('ROLE_MEMBER')");
 
         http.formLogin()
-            .loginPage("/member/login")
+            .loginPage("/user/login")
             .loginProcessingUrl("/login")
             .successHandler(loginSuccessHandler());
 

@@ -4,16 +4,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.test.spring.domain.entity.MemberEntity;
-import com.test.spring.service.MemberService;
+import com.test.spring.domain.entity.UserEntity;
+import com.test.spring.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping(value = "/member")
-public class MemberController {
+@RequestMapping(value = "/user")
+public class UserController {
 
-    private MemberService memberService;
+    private UserService userService;
 
     @GetMapping(value = "/login")
     public void login() {
@@ -31,9 +31,9 @@ public class MemberController {
     }
 
     @PostMapping(value = "/register")
-    public String register(MemberEntity memberEntity) {
-        log.info("register : {}", memberEntity);
-        return memberService.insert(memberEntity) > 0 ? "/member/login" : "/member/register";
+    public String register(UserEntity userEntity) {
+        log.info("register : {}", userEntity);
+        return userService.insert(userEntity) > 0 ? "/user/login" : "/user/register";
     }
 
 }

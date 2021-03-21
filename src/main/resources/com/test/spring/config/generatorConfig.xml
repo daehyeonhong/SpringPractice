@@ -10,7 +10,7 @@
         </javaModelGenerator>
         <sqlMapGenerator targetPackage="com.test.spring.mapper" targetProject="SpringTest/src/main/resources" />
         <javaClientGenerator targetPackage="com.test.spring.mapper" targetProject="SpringTest/src/main/java" type="XMLMAPPER" />
-        <table tableName="Member" />
+        <table tableName="USER" />
     </context>
 
 </generatorConfiguration>
