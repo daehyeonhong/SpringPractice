@@ -10,10 +10,10 @@
                     </div>
                     <form class="user" role="form" method="post" action="/login">
                         <div class="form-group">
-                            <input type="text" class="form-control form-control-user" id="memberId" name="memberId" aria-describedby="emailHelp" placeholder="ID" autofocus="autofocus" />
+                            <input type="text" class="form-control form-control-user" id="userId" name="userId" aria-describedby="emailHelp" placeholder="ID" autofocus="autofocus" />
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control form-control-user" id="memberPassword" name="memberPassword" placeholder="Password" />
+                            <input type="password" class="form-control form-control-user" id="userPassword" name="userPassword" placeholder="Password" />
                         </div>
                         <a href="index.html" id="submitBtn" class="btn btn-primary btn-user btn-block">
                             Login

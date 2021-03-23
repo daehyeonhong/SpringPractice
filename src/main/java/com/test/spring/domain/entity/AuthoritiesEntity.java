@@ -9,7 +9,7 @@ import lombok.ToString;
 @ToString
 public class AuthoritiesEntity {
 
-    private String memberId;
+    private String userId;
 
     private String authority;
 

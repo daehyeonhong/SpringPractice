@@ -12,14 +12,14 @@
         <put-attribute name="logoutModal" value="/WEB-INF/views/tiles/logoutModal.jsp" />
     </definition>
 
-    <definition name="memberLayout" template="/WEB-INF/views/tiles/layout/memberLayout.jsp">
+    <definition name="userLayout" template="/WEB-INF/views/tiles/layout/userLayout.jsp">
         <put-attribute name="css" value="/WEB-INF/views/tiles/css.jsp" />
         <put-attribute name="script" value="/WEB-INF/views/tiles/script.jsp" />
     </definition>
 
-    <definition name="member/*" extends="memberLayout">
+    <definition name="user/*" extends="userLayout">
         <put-attribute name="title" value="{1}" />
-        <put-attribute name="body" value="/WEB-INF/views/member/{1}.jsp" />
+        <put-attribute name="body" value="/WEB-INF/views/user/{1}.jsp" />
     </definition>
 
     <definition name="*" extends="defaultLayout">

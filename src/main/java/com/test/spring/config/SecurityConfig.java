@@ -1,5 +1,7 @@
 package com.test.spring.config;
 
+import javax.sql.DataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -13,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.firewall.DefaultHttpFirewall;
 import org.springframework.security.web.firewall.HttpFirewall;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import com.test.spring.security.LoginSuccessHandlerImpl;
 import com.test.spring.security.UserDetailsServiceImpl;
@@ -21,6 +24,9 @@ import com.test.spring.security.UserDetailsServiceImpl;
 @EnableWebSecurity
 @Slf4j
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Setter(onMethod_ = @Autowired)
+    private DataSource dataSource;
 
     @Bean
     public UserDetailsService userDetailsService() {

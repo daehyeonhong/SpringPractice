@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.test.spring.mapper.UserMapper">
 
-  <resultMap id="BaseUserEntityResultMap" type="com.test.spring.domain.entity.UserEntity">
+  <resultMap id="BaseUserEntityResultMap" type="UserVO">
     <id column="USER_ID" jdbcType="VARCHAR" property="userId" />
     <result column="USER_PASSWORD" jdbcType="VARCHAR" property="userPassword" />
     <result column="ENABLED" jdbcType="CHAR" property="enabled" />
@@ -17,7 +17,7 @@
   </resultMap>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from USER
+    delete from "USER"
     where USER_ID = #{userId,jdbcType=VARCHAR}
   </delete>
 
@@ -33,7 +33,7 @@
   </insert>
 
   <update id="updateByPrimaryKey" parameterType="com.test.spring.domain.entity.UserEntity">
-    update USER
+    update "USER"
     set USER_PASSWORD = #{userPassword,jdbcType=VARCHAR},
       ENABLED = #{enabled,jdbcType=CHAR},
       USER_NAME = #{userName,jdbcType=VARCHAR},
@@ -50,14 +50,25 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseUserEntityResultMap">
     select USER_ID, USER_PASSWORD, ENABLED, USER_NAME, USER_NICKNAME, BIRTH_DATE, USER_EMAIL, 
     USER_PHONE, LICENSE, USER_REGDATE, USER_UPDATE
-    from USER
+    from "USER"
     where USER_ID = #{userId,jdbcType=VARCHAR}
   </select>
 
   <select id="selectAll" resultMap="BaseUserEntityResultMap">
     select USER_ID, USER_PASSWORD, ENABLED, USER_NAME, USER_NICKNAME, BIRTH_DATE, USER_EMAIL, 
     USER_PHONE, LICENSE, USER_REGDATE, USER_UPDATE
-    from USER
+    from "USER"
   </select>
+
+    <select id="read" resultMap="BaseUserEntityResultMap">
+        <![CDATA[
+            SELECT
+                U.USER_ID,USER_PASSWORD,USER_NAME,ENABLED,USER_REGDATE,USER_UPDATE,A.AUTHORITY
+            FROM
+                "USER" U LEFT OUTER JOIN AUTHORITIES A ON U.USER_ID=A.USER_ID
+            WHERE
+                U.USER_ID=#{user_id}
+        ]]>
+    </select>
 
 </mapper>
