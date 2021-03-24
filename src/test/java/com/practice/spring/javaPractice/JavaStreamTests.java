@@ -1,4 +1,4 @@
-package com.test.spring.javaPractice;
+package com.practice.spring.javaPractice;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.practice.spring.domain.entity.CountriesEntity;
 import com.practice.spring.service.CountriesService;
-import com.test.spring.config.JUnitTestConfig;
+import com.practice.spring.config.JUnitTestConfig;
 
 import lombok.extern.slf4j.Slf4j;
 

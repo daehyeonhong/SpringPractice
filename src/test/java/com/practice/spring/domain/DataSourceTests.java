@@ -1,11 +1,11 @@
-package com.test.spring.domain;
+package com.practice.spring.domain;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.sql.DataSource;
 import org.junit.Test;
-import com.test.spring.config.JUnitTestConfig;
+import com.practice.spring.config.JUnitTestConfig;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

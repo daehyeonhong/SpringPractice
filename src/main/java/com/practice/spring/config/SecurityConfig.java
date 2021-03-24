@@ -27,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Setter(onMethod_ = @Autowired)
+    @Setter(onMethod_ = { @Autowired })
     private DataSource dataSource;
 
     @Bean
@@ -69,6 +69,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/user/member").access("hasRole('ROLE_MEMBER')");
 
         http.formLogin()
+            .usernameParameter("userId")
+            .passwordParameter("userPassword")
             .loginPage("/user/login")
             .loginProcessingUrl("/login")
             .successHandler(loginSuccessHandler());

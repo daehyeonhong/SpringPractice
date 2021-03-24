@@ -26,7 +26,7 @@ import lombok.Setter;
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
 @MapperScan(basePackages = { "com.practice.spring.mapper" })
-@PropertySource(value = { "classpath:/com/test/spring/config/database.properties" })
+@PropertySource(value = { "classpath:/com/practice/spring/config/database.properties" })
 public class RootConfig {
 
     @Setter(onMethod_ = @Autowired)
@@ -71,7 +71,7 @@ public class RootConfig {
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
         sqlSessionFactory.setDataSource(dataSource());
-        sqlSessionFactory.setConfigLocation(applicationContext.getResource("classpath:/com/test/spring/config/mybatis-config.xml"));
+        sqlSessionFactory.setConfigLocation(applicationContext.getResource("classpath:/com/practice/spring/config/mybatis-config.xml"));
         return (SqlSessionFactory) sqlSessionFactory.getObject();
     }
 

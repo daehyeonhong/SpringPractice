@@ -4,7 +4,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class NoOpPasswordEncoderImpl implements PasswordEncoder {
+public class PasswordEncoderImpl implements PasswordEncoder {
 
     @Override
     public String encode(CharSequence rawPassword) {

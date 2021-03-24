@@ -63,7 +63,7 @@
     <select id="read" resultMap="BaseUserEntityResultMap">
         <![CDATA[
             SELECT
-                U.USER_ID,USER_PASSWORD,USER_NAME,ENABLED,USER_REGDATE,USER_UPDATE,A.AUTHORITY
+                U.USER_ID,USER_PASSWORD,USER_NAME,ENABLED,USER_REGDATE,USER_UPDATE,AUTHORITY
             FROM
                 "USER" U LEFT OUTER JOIN AUTHORITIES A ON U.USER_ID=A.USER_ID
             WHERE
