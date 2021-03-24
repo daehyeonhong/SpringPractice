@@ -5,9 +5,11 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.annotation.Rollback;
+
+import com.practice.spring.domain.entity.UserEntity;
+import com.practice.spring.service.UserService;
 import com.test.spring.config.JUnitTestConfig;
-import com.test.spring.domain.entity.UserEntity;
-import com.test.spring.service.UserService;
+
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 

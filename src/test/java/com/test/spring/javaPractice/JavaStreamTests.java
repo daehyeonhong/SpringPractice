@@ -8,9 +8,11 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.practice.spring.domain.entity.CountriesEntity;
+import com.practice.spring.service.CountriesService;
 import com.test.spring.config.JUnitTestConfig;
-import com.test.spring.domain.entity.CountriesEntity;
-import com.test.spring.service.CountriesService;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

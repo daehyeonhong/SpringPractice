@@ -17,15 +17,15 @@
     </settings>
 
     <typeAliases>
-        <typeAlias alias="authVO" type="com.test.spring.domain.AuthVO" />
-        <typeAlias alias="UserVO" type="com.test.spring.domain.UserVO" />
-        <typeAlias alias="CountriesEntity" type="com.test.spring.domain.entity.CountriesEntity" />
-        <typeAlias alias="DepartmentsEntity" type="com.test.spring.domain.entity.DepartmentsEntity" />
-        <typeAlias alias="EmployeesEntity" type="com.test.spring.domain.entity.EmployeesEntity" />
-        <typeAlias alias="JobHistoryEntity" type="com.test.spring.domain.entity.JobHistoryEntity" />
-        <typeAlias alias="JobsEntity" type="com.test.spring.domain.entity.JobsEntity" />
-        <typeAlias alias="LocationsEntity" type="com.test.spring.domain.entity.LocationsEntity" />
-        <typeAlias alias="RegionsEntity" type="com.test.spring.domain.entity.RegionsEntity" />
+        <typeAlias alias="authVO" type="com.practice.spring.domain.AuthVO" />
+        <typeAlias alias="UserVO" type="com.practice.spring.domain.UserVO" />
+        <typeAlias alias="CountriesEntity" type="com.practice.spring.domain.entity.CountriesEntity" />
+        <typeAlias alias="DepartmentsEntity" type="com.practice.spring.domain.entity.DepartmentsEntity" />
+        <typeAlias alias="EmployeesEntity" type="com.practice.spring.domain.entity.EmployeesEntity" />
+        <typeAlias alias="JobHistoryEntity" type="com.practice.spring.domain.entity.JobHistoryEntity" />
+        <typeAlias alias="JobsEntity" type="com.practice.spring.domain.entity.JobsEntity" />
+        <typeAlias alias="LocationsEntity" type="com.practice.spring.domain.entity.LocationsEntity" />
+        <typeAlias alias="RegionsEntity" type="com.practice.spring.domain.entity.RegionsEntity" />
     </typeAliases>
 
 </configuration>

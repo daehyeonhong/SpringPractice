@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.test.spring.mapper.AuthoritiesMapper">
+<mapper namespace="com.practice.spring.mapper.AuthoritiesMapper">
 
-    <resultMap id="BaseAuthoritiesEntityResultMap" type="com.test.spring.domain.entity.AuthoritiesEntity">
+    <resultMap id="BaseAuthoritiesEntityResultMap" type="com.practice.spring.domain.entity.AuthoritiesEntity">
         <result column="USER_ID" jdbcType="VARCHAR" property="userId" />
         <result column="AUTHORITY" jdbcType="VARCHAR" property="authority" />
     </resultMap>
 
-    <insert id="insert" parameterType="com.test.spring.domain.entity.AuthoritiesEntity">
+    <insert id="insert" parameterType="com.practice.spring.domain.entity.AuthoritiesEntity">
         insert into AUTHORITIES (USER_ID, AUTHORITY)
         values (#{userId,jdbcType=VARCHAR}, #{authority,jdbcType=VARCHAR})
     </insert>

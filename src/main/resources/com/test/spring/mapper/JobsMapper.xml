@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.test.spring.mapper.JobsMapper">
+<mapper namespace="com.practice.spring.mapper.JobsMapper">
 
-    <resultMap id="BaseJobsEntityResultMap" type="com.test.spring.domain.entity.JobsEntity">
+    <resultMap id="BaseJobsEntityResultMap" type="com.practice.spring.domain.entity.JobsEntity">
         <id column="JOB_ID" jdbcType="VARCHAR" property="jobId" />
         <result column="JOB_TITLE" jdbcType="VARCHAR" property="jobTitle" />
         <result column="MIN_SALARY" jdbcType="NUMERIC" property="minSalary" />
@@ -14,14 +14,14 @@
         where JOB_ID = #{jobId,jdbcType=VARCHAR}
     </delete>
 
-    <insert id="insert" parameterType="com.test.spring.domain.entity.JobsEntity">
+    <insert id="insert" parameterType="com.practice.spring.domain.entity.JobsEntity">
         insert into JOBS (JOB_ID, JOB_TITLE, MIN_SALARY,
         MAX_SALARY)
         values (#{jobId,jdbcType=VARCHAR}, #{jobTitle,jdbcType=VARCHAR}, #{minSalary,jdbcType=NUMERIC},
         #{maxSalary,jdbcType=NUMERIC})
     </insert>
 
-    <update id="updateByPrimaryKey" parameterType="com.test.spring.domain.entity.JobsEntity">
+    <update id="updateByPrimaryKey" parameterType="com.practice.spring.domain.entity.JobsEntity">
         update JOBS
         set JOB_TITLE = #{jobTitle,jdbcType=VARCHAR},
         MIN_SALARY = #{minSalary,jdbcType=NUMERIC},
