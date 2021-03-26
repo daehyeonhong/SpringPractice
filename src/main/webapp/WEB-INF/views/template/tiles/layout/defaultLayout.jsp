@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <html>
 
 <head>
@@ -18,11 +15,20 @@
     <tiles:insertAttribute name="script" />
 </head>
 
-<body class="bg-gradient-primary">
+<body id="page-top">
 
-    <div class="container">
-        <tiles:insertAttribute name="body" />
+    <div id="wrapper">
+        <tiles:insertAttribute name="sidebar" />
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <tiles:insertAttribute name="toolbar" />
+                <tiles:insertAttribute name="body" />
+            </div>
+            <tiles:insertAttribute name="footer" />
+        </div>
     </div>
+    <tiles:insertAttribute name="button" />
+    <tiles:insertAttribute name="logoutModal" />
 
 </body>
 
