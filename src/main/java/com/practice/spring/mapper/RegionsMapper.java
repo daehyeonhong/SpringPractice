@@ -1,7 +1,6 @@
 package com.practice.spring.mapper;
 
 import java.util.List;
-
 import com.practice.spring.domain.entity.RegionsEntity;
 
 public interface RegionsMapper {
