@@ -7,17 +7,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import com.practice.spring.domain.entity.CountriesEntity;
-import com.practice.spring.service.CountriesService;
 import com.practice.spring.config.JUnitTestConfig;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class JavaStreamTests extends JUnitTestConfig {
-
-    @Autowired
-    private CountriesService countriesService;
 
     @Before
     public void preTest() {
@@ -53,28 +47,6 @@ public class JavaStreamTests extends JUnitTestConfig {
         iteratedStream.forEach(streamItem -> log.info("iteratedStream : {}", streamItem));
         String url = "https://futurecreator.github.io/2018/08/26/java-8-streams/";
         log.info(url);
-        List<CountriesEntity> countries = countriesService.selectAll();
-        Stream<CountriesEntity> countriesStream = countries.stream();
-        countriesStream.forEach(streamItem -> log.info("countriesStream : {}", streamItem));
-    }
-
-    @Test
-    public void streamUpdate() {
-        List<CountriesEntity> countries = countriesService.selectAll();
-        Stream<CountriesEntity> countriesStream = countries.stream();
-        countriesStream.forEach(countriesItem -> {
-            if (countriesItem.getCountryId() == "DE") {
-                countriesItem.setCountryName("바보");
-                countriesService.updateByPrimaryKey(countriesItem);
-            }
-            log.info("{}", countriesItem);
-        });
-    }
-
-    @Test
-    public void insert() {
-        CountriesEntity afterCountries = countriesService.selectByPrimaryKey("DE");
-        log.info("{}", afterCountries);
     }
 
     @After
