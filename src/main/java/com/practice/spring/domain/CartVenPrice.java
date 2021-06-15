@@ -5,7 +5,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
-public class CouponResult {
+public class CartVenPrice {
     private Integer venId;
     private BigDecimal itemPrice;
 }
